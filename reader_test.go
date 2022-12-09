@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/zhnxin/csvreader"
+	"github.com/xbclub/csvreader"
 )
 
 type testStruct struct {

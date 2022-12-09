@@ -26,6 +26,11 @@ func New() *Decoder {
 func (d *Decoder) WithHeader(header []string) *Decoder {
 	d.header = make(map[string]int)
 	for i, h := range header {
+		if h[0] == '\xEF' && h[1] == '\xBB' && h[2] == '\xBF' {
+			h = h[3:]
+		}
+		h = strings.ReplaceAll(h, " ", "")
+		h = strings.ReplaceAll(h, ",", "")
 		d.header[h] = i
 	}
 	return d
